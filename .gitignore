@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Parcal ignores
+.parcel-cache/
+dist/
+node_modules/
+
