@@ -1,19 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import "./style/form.css"
+import { Errors, State } from "../utils/types"
 
-type Errors = {
-  name: string
-  email: string
-  password: string
-}
-
-type State = {
-  name: string
-  email: string
-  password: string
-  errors: Errors
-  isValid: boolean
-}
 const initialErrors: Errors = {
   name: "",
   email: "",
