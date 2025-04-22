@@ -1,10 +1,10 @@
 import "./App.css"
-import Form from "./component/Form"
+import Modal from "./component/Modal"
 
 function App() {
   return (
     <>
-      <Form />
+      <Modal />
     </>
   )
 }
