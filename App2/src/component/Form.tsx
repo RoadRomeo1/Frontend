@@ -70,7 +70,7 @@ const Form = () => {
   return (
     <form>
       {/* hide bullets here */}
-      <ul style={{ listStyleType: "none" }}>
+      <ul>
         <li>
           {" "}
           <input type="text" placeholder="Name" name="name" value={state.name} ref={nameRef} onChange={handleChange} />
