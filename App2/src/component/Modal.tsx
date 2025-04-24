@@ -1,16 +1,15 @@
 import { useState } from "react"
-import "./style/modal.css"
+import { MainContainer, ModalContainer, CloseButton, Backdrop, ModalText, OpenButton } from "./style/Modal.style"
 
 const Modal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   return (
-    <div className="main-container">
+    <MainContainer>
       {isModalOpen ? (
         <>
-          <div className="backdrop" onClick={() => setIsModalOpen(false)}></div>
-          <div className="container">
-            <span
-              className="close"
+          <Backdrop onClick={() => setIsModalOpen(false)} />
+          <ModalContainer>
+            <CloseButton
               role="button"
               tabIndex={0}
               onClick={() => {
@@ -18,23 +17,22 @@ const Modal = () => {
               }}
             >
               X
-            </span>
+            </CloseButton>
             <h1>Modal</h1>
-            <span className="modal">This is a modal component.</span>
-          </div>
+            <ModalText>This is a modal component.</ModalText>
+          </ModalContainer>
         </>
       ) : (
-        <button
+        <OpenButton
           type="button"
-          className="open-modal"
           onClick={() => {
             setIsModalOpen(true)
           }}
         >
           Open Modal
-        </button>
+        </OpenButton>
       )}
-    </div>
+    </MainContainer>
   )
 }
 export default Modal

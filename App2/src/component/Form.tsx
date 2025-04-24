@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import "./style/form.css"
-import { Errors, State } from "../utils/types"
+import { Errors, State } from "../component/utils"
+import { StyledForm, StyledList, StyledListItem, StyledInput, ErrorMessage, SubmitButton } from "./style/Form.style"
+
 
 const initialErrors: Errors = {
   name: "",
@@ -68,29 +69,27 @@ const Form = () => {
   }
 
   return (
-    <form>
-      {/* hide bullets here */}
-      <ul style={{ listStyleType: "none" }}>
-        <li>
-          {" "}
-          <input type="text" placeholder="Name" name="name" value={state.name} ref={nameRef} onChange={handleChange} />
-          <span className="error">{errors.name}</span>
-        </li>
-        <li>
-          <input type="email" placeholder="Email" name="email" value={state.email} onChange={handleChange} />
-          <span className="error">{errors.email}</span>
-        </li>
-        <li>
-          <input type="password" placeholder="Password" name="password" value={state.password} onChange={handleChange} />
-          <span className="error">{errors.password}</span>
-        </li>
-        <li>
-          <button type="submit" onClick={handleSubmit}>
+    <StyledForm>
+      <StyledList>
+        <StyledListItem>
+          <StyledInput type="text" placeholder="Name" name="name" value={state.name} ref={nameRef} onChange={handleChange} />
+          {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
+        </StyledListItem>
+        <StyledListItem>
+          <StyledInput type="email" placeholder="Email" name="email" value={state.email} onChange={handleChange} />
+          {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+        </StyledListItem>
+        <StyledListItem>
+          <StyledInput type="password" placeholder="Password" name="password" value={state.password} onChange={handleChange} />
+          {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
+        </StyledListItem>
+        <StyledListItem>
+          <SubmitButton type="submit" onClick={handleSubmit}>
             Submit
-          </button>
-        </li>
-      </ul>
-    </form>
+          </SubmitButton>
+        </StyledListItem>
+      </StyledList>
+    </StyledForm>
   )
 }
 export default Form
