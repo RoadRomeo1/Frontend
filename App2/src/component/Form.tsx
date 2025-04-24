@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Errors, State } from "../utils/types"
+import { Errors, State } from "../component/utils"
 import { StyledForm, StyledList, StyledListItem, StyledInput, ErrorMessage, SubmitButton } from "./style/Form.style"
 
 const initialErrors: Errors = {
